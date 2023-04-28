@@ -4,11 +4,11 @@ use std::process::ExitCode;
 
 use crate::read_line::read_line;
 
-pub trait CliHandlerTrait {
-    fn handle(&self, line: String) -> Result<Option<ExitCode>, Box<dyn Error>>;
+pub trait CliHandler {
+    fn handle(&mut self, line: String) -> Result<Option<ExitCode>, Box<dyn Error>>;
 }
 
-pub fn cli(cli_handler: impl CliHandlerTrait) -> Result<ExitCode, Box<dyn Error>> {
+pub fn cli(mut cli_handler: impl CliHandler) -> Result<ExitCode, Box<dyn Error>> {
     let mut exit_code: Option<ExitCode> = None;
 
     while let None = exit_code {
