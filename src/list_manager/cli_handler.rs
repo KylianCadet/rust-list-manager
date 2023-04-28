@@ -1,3 +1,5 @@
+use std::process::ExitCode;
+
 use crate::cli::CliHandler;
 
 use super::{ctype::ReturnType, list_manager::ListManager};
@@ -10,6 +12,8 @@ impl CliHandler for ListManager {
 
         match function_name {
             "define" => self.define(arg),
+            "display" => self.display(),
+            "exit" => Ok(Some(ExitCode::SUCCESS)),
             _ => self.unknown(function_name),
         }
     }

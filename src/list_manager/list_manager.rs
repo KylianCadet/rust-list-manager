@@ -1,12 +1,12 @@
 use super::ctype::ReturnType;
 
 pub struct ListManager {
-    list: Box<[u8]>,
+    pub list: Vec<Vec<i8>>,
 }
 
 impl ListManager {
     pub fn new() -> ListManager {
-        ListManager { list: Box::new([]) }
+        ListManager { list: vec![] }
     }
 
     pub fn unknown(&self, function_name: &str) -> ReturnType {
