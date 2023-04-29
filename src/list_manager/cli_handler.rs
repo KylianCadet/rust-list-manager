@@ -13,6 +13,7 @@ impl CliHandler for ListManager {
         match function_name {
             "define" => self.define(arg),
             "display" => self.display(),
+            "sum" => self.sum(),
             "exit" => Ok(Some(ExitCode::SUCCESS)),
             _ => self.unknown(function_name),
         }

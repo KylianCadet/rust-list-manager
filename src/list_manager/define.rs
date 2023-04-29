@@ -1,6 +1,4 @@
-use std::io;
-
-use super::{ctype::ReturnType, list_manager::ListManager};
+use super::{cerror::ListManagerError, ctype::ReturnType, list_manager::ListManager};
 use regex::Regex;
 
 fn parse(arg: &str) -> Option<Vec<i8>> {
@@ -24,7 +22,7 @@ impl ListManager {
             self.list.push(parsed);
             Ok(None)
         } else {
-            Err(Box::new(io::Error::new(io::ErrorKind::InvalidInput, arg)))
+            Err(Box::new(ListManagerError::InvalidInput(arg.to_string())))
         }
     }
 }

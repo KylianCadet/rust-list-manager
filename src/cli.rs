@@ -13,10 +13,10 @@ pub fn cli(mut cli_handler: impl CliHandler) -> Result<ExitCode, Box<dyn Error>>
 
     while let None = exit_code {
         match read_line() {
-            Ok(line) => {
-                let handler_res = cli_handler.handle(line)?;
-                exit_code = handler_res
-            }
+            Ok(line) => match cli_handler.handle(line) {
+                Ok(handler_res) => exit_code = handler_res,
+                Err(e) => println!("error: {}", e),
+            },
             Err(e) => match e.kind() {
                 io::ErrorKind::UnexpectedEof => exit_code = Some(ExitCode::SUCCESS),
                 _ => exit_code = Some(ExitCode::FAILURE),
