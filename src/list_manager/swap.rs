@@ -40,7 +40,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_cut_with_no_list() {
+    fn test_swap_with_no_list() {
         let mut list_manager = ListManager::new();
         list_manager.list = vec![];
         let err = list_manager.swap("1").unwrap_err();
@@ -51,7 +51,7 @@ mod tests {
     }
 
     #[test]
-    fn test_cut_with_no_input() {
+    fn test_swap_with_no_input() {
         let mut list_manager = ListManager::new();
         list_manager.list = vec![vec![1, 2, 3]];
         let err = list_manager.swap("").unwrap_err();
@@ -62,7 +62,7 @@ mod tests {
     }
 
     #[test]
-    fn test_cut_with_invalid_input() {
+    fn test_swap_with_invalid_input() {
         let mut list_manager = ListManager::new();
         list_manager.list = vec![vec![1, 2, 3]];
         let err = list_manager.swap("no").unwrap_err();
@@ -73,7 +73,7 @@ mod tests {
     }
 
     #[test]
-    fn test_cut_with_out_of_index_input() {
+    fn test_swap_with_out_of_index_input() {
         let mut list_manager = ListManager::new();
         list_manager.list = vec![vec![1, 2, 3]];
         let err = list_manager.swap("3").unwrap_err();
@@ -84,7 +84,7 @@ mod tests {
     }
 
     #[test]
-    fn test_cut_with_out_of_index_input_and_multiple_list() {
+    fn test_swap_with_out_of_index_input_and_multiple_list() {
         let mut list_manager = ListManager::new();
         list_manager.list = vec![vec![1, 2, 3, 4, 5], vec![1, 2]];
         let err = list_manager.swap("4").unwrap_err();
@@ -95,7 +95,7 @@ mod tests {
     }
 
     #[test]
-    fn test_cut_with_negative_input() {
+    fn test_swap_with_negative_input() {
         let mut list_manager = ListManager::new();
         list_manager.list = vec![vec![1, 2, 3]];
         let err = list_manager.swap("-1").unwrap_err();
