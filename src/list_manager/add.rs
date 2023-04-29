@@ -28,7 +28,7 @@ mod tests {
     fn test_add_with_no_list() {
         let mut list_manager = ListManager::new();
         list_manager.list = vec![];
-        let err = list_manager.chunks("1").unwrap_err();
+        let err = list_manager.add("1").unwrap_err();
         assert_eq!(
             err.downcast_ref::<ListManagerError>(),
             Some(&ListManagerError::NoAvailableListToPerformAction)
@@ -39,7 +39,7 @@ mod tests {
     fn test_add_with_no_input() {
         let mut list_manager = ListManager::new();
         list_manager.list = vec![vec![1, 2, 3]];
-        let err = list_manager.chunks("").unwrap_err();
+        let err = list_manager.add("").unwrap_err();
         assert_eq!(
             err.downcast_ref::<ListManagerError>(),
             Some(&ListManagerError::NoInput)
@@ -50,7 +50,7 @@ mod tests {
     fn test_add_with_invalid_input() {
         let mut list_manager = ListManager::new();
         list_manager.list = vec![vec![1, 2, 3]];
-        let err = list_manager.chunks("no").unwrap_err();
+        let err = list_manager.add("no").unwrap_err();
         assert_eq!(
             err.downcast_ref::<ListManagerError>(),
             Some(&ListManagerError::InvalidInput("no".to_string()))
