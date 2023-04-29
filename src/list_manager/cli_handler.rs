@@ -18,6 +18,7 @@ impl CliHandler for ListManager {
             "flatten" => self.flatten(),
             "chunks" => self.chunks(arg),
             "add" => self.add(arg),
+            "cut" => self.cut(arg),
             "exit" => Ok(Some(ExitCode::SUCCESS)),
             _ => Err(Box::new(ListManagerError::InvalidFunction(
                 function_name.to_string(),

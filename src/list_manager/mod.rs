@@ -3,6 +3,7 @@ pub mod cerror;
 pub mod chunks;
 pub mod cli_handler;
 pub mod ctype;
+pub mod cut;
 pub mod define;
 pub mod flatten;
 pub mod fmt;

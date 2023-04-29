@@ -3,13 +3,13 @@ use std::fmt::Display;
 
 #[derive(Debug, PartialEq)]
 pub enum ListManagerError {
-    NoAvailableListToCut,
     NoAvailableListToPerformAction,
     TooManyAvailableListToSum,
     NotEnoughAvailableListToFlatten,
     InvalidInput(String),
     InvalidFunction(String),
     NoInput,
+    CutIndexOutOfRange(Vec<i8>),
 }
 
 impl Error for ListManagerError {}
@@ -17,9 +17,6 @@ impl Error for ListManagerError {}
 impl Display for ListManagerError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            ListManagerError::NoAvailableListToCut => {
-                f.write_str("No available list to cut, please define one")
-            }
             ListManagerError::InvalidInput(s) => {
                 f.write_fmt(format_args!("Invalid input \"{}\"", s))
             }
@@ -36,6 +33,9 @@ impl Display for ListManagerError {
                 f.write_str("Not enough available list to flatten, please define at least 2")
             }
             ListManagerError::NoInput => f.write_str("Function expected an input"),
+            ListManagerError::CutIndexOutOfRange(l) => {
+                f.write_fmt(format_args!("Cut index out of range for list {:?}", l))
+            }
         }
     }
 }
