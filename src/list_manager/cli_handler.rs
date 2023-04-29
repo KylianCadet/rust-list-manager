@@ -20,6 +20,7 @@ impl CliHandler for ListManager {
             "add" => self.add(arg),
             "cut" => self.cut(arg),
             "swap" => self.swap(arg),
+            "help" => self.help(),
             "exit" => Ok(Some(ExitCode::SUCCESS)),
             _ => Err(Box::new(ListManagerError::InvalidFunction(
                 function_name.to_string(),

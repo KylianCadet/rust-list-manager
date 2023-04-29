@@ -23,9 +23,10 @@ impl Display for ListManagerError {
             ListManagerError::TooManyAvailableListToSum => {
                 f.write_str("Too many available list to sum, must be used with only 1 list")
             }
-            ListManagerError::InvalidFunction(s) => {
-                f.write_fmt(format_args!("Invalid function \"{}\"", s))
-            }
+            ListManagerError::InvalidFunction(s) => f.write_fmt(format_args!(
+                "Invalid function \"{}\". Type \"help\" for command list",
+                s
+            )),
             ListManagerError::NoAvailableListToPerformAction => {
                 f.write_str("No available list to perform action, please define one")
             }
