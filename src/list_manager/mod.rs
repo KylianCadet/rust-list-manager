@@ -10,3 +10,4 @@ pub mod fmt;
 pub mod list_manager;
 pub mod sort;
 pub mod sum;
+pub mod swap;

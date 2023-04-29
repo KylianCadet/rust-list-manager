@@ -9,7 +9,7 @@ pub enum ListManagerError {
     InvalidInput(String),
     InvalidFunction(String),
     NoInput,
-    CutIndexOutOfRange(Vec<i8>),
+    IndexOutOfRange(Vec<i8>),
 }
 
 impl Error for ListManagerError {}
@@ -33,8 +33,8 @@ impl Display for ListManagerError {
                 f.write_str("Not enough available list to flatten, please define at least 2")
             }
             ListManagerError::NoInput => f.write_str("Function expected an input"),
-            ListManagerError::CutIndexOutOfRange(l) => {
-                f.write_fmt(format_args!("Cut index out of range for list {:?}", l))
+            ListManagerError::IndexOutOfRange(l) => {
+                f.write_fmt(format_args!("Index out of range for list {:?}", l))
             }
         }
     }

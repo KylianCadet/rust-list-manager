@@ -19,6 +19,7 @@ impl CliHandler for ListManager {
             "chunks" => self.chunks(arg),
             "add" => self.add(arg),
             "cut" => self.cut(arg),
+            "swap" => self.swap(arg),
             "exit" => Ok(Some(ExitCode::SUCCESS)),
             _ => Err(Box::new(ListManagerError::InvalidFunction(
                 function_name.to_string(),
