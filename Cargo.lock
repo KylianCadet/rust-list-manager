@@ -157,6 +157,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "rust-list-manager"
+version = "0.1.0"
+dependencies = [
+ "clippy",
+ "regex",
+]
+
+[[package]]
 name = "term"
 version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -165,14 +173,6 @@ dependencies = [
  "byteorder",
  "dirs",
  "winapi",
-]
-
-[[package]]
-name = "toma"
-version = "0.1.0"
-dependencies = [
- "clippy",
- "regex",
 ]
 
 [[package]]
