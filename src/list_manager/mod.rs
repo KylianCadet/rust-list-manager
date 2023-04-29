@@ -2,6 +2,8 @@ pub mod cerror;
 pub mod cli_handler;
 pub mod ctype;
 pub mod define;
+pub mod flatten;
 pub mod fmt;
 pub mod list_manager;
+pub mod sort;
 pub mod sum;

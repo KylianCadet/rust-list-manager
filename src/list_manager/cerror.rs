@@ -1,11 +1,14 @@
 use std::error::Error;
 use std::fmt::Display;
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum ListManagerError {
     NoAvailableListToCut,
+    NoAvailableListToPerformAction,
     TooManyAvailableListToSum,
+    NotEnoughAvailableListToFlatten,
     InvalidInput(String),
+    InvalidFunction(String),
 }
 
 impl Error for ListManagerError {}
@@ -21,6 +24,15 @@ impl Display for ListManagerError {
             }
             ListManagerError::TooManyAvailableListToSum => {
                 f.write_str("Too many available list to sum, must be used with only 1 list")
+            }
+            ListManagerError::InvalidFunction(s) => {
+                f.write_fmt(format_args!("Invalid function \"{}\"", s))
+            }
+            ListManagerError::NoAvailableListToPerformAction => {
+                f.write_str("No available list to perform action, please define one")
+            }
+            ListManagerError::NotEnoughAvailableListToFlatten => {
+                f.write_str("Not enough available list to flatten, please define at least 2")
             }
         }
     }

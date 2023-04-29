@@ -2,7 +2,7 @@ use std::process::ExitCode;
 
 use crate::cli::CliHandler;
 
-use super::{ctype::ReturnType, list_manager::ListManager};
+use super::{cerror::ListManagerError, ctype::ReturnType, list_manager::ListManager};
 
 impl CliHandler for ListManager {
     fn handle(&mut self, line: String) -> ReturnType {
@@ -14,8 +14,12 @@ impl CliHandler for ListManager {
             "define" => self.define(arg),
             "display" => self.display(),
             "sum" => self.sum(),
+            "sort" => self.sort(),
+            "flatten" => self.flatten(),
             "exit" => Ok(Some(ExitCode::SUCCESS)),
-            _ => self.unknown(function_name),
+            _ => Err(Box::new(ListManagerError::InvalidFunction(
+                function_name.to_string(),
+            ))),
         }
     }
 }
