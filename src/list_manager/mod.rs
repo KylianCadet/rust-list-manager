@@ -1,3 +1,4 @@
+pub mod add;
 pub mod cerror;
 pub mod chunks;
 pub mod cli_handler;
