@@ -1,14 +1,25 @@
 # Rust list manager
+
 List manager is a program that performs a variety of tasks on a given list through a command line interface.
+
 ## List of available commands
+
+### Help
+
+Display list of available commands.
+
 ### Define
+
 Sets a list to be used by following tasks.
+
 ```
 > define [9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
 
 ### Cut
+
 Takes an index as parameter and splits the previous list(s) at the given index.
+
 ```
 > define [9, 8, 7, 6, 5, 4, 3, 2, 1]
 > cut 3
@@ -17,7 +28,9 @@ Takes an index as parameter and splits the previous list(s) at the given index.
 ```
 
 ### Swap
+
 Takes an index as parameter and swaps the elements of the previous list(s) using the index as a swapping point.
+
 ```
 > cut 3
 [9, 8, 7, 6]
@@ -28,7 +41,9 @@ Takes an index as parameter and swaps the elements of the previous list(s) using
 ```
 
 ### Add
+
 Increases every element of the previous list(s) by the given amount.
+
 ```
 > mirror_swap 2
 [9, 8, 6, 7]
@@ -39,7 +54,9 @@ Increases every element of the previous list(s) by the given amount.
 ```
 
 ### Sort
+
 Sorts the previous list(s) in increasing order.
+
 ```
 > add 2
 [11, 10, 8, 9]
@@ -50,7 +67,9 @@ Sorts the previous list(s) in increasing order.
 ```
 
 ### Chunks
+
 Separates the previous list(s) in chunks of the given amount.
+
 ```
 > sort
 [8, 9, 10, 11]
@@ -64,7 +83,9 @@ Separates the previous list(s) in chunks of the given amount.
 ```
 
 ### Flatten
+
 Unifies the previous lists as one.
+
 ```
 > chunks 2
 [8, 9]
@@ -77,7 +98,9 @@ Unifies the previous lists as one.
 ```
 
 ### Sum
+
 Performs the cumulated sum of the previous list if there is only one list, and consumes it.
+
 ```
 > flatten
 [8, 9, 10, 11, 3, 4, 5, 6, 7]
