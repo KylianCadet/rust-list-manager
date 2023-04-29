@@ -1,5 +1,4 @@
 use super::{cerror::ListManagerError, ctype::ReturnType, list_manager::ListManager};
-use std::cmp;
 
 impl ListManager {
     pub fn chunks(&mut self, s: &str) -> ReturnType {
@@ -15,12 +14,9 @@ impl ListManager {
             .map_err(|_| ListManagerError::InvalidInput(s.to_string()))?;
 
         let new_list = self.list.iter().fold(vec![], |mut acc, l| {
-            let mut i = 0;
-            while i < l.len() {
-                let chunk = Vec::from(&l[i..cmp::min(i + chunk_size, l.len())]);
-                acc.push(chunk);
-                i += chunk_size
-            }
+            l.chunks(chunk_size)
+                .map(|c| c.to_vec())
+                .for_each(|c| acc.push(c));
             acc
         });
 
