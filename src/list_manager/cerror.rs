@@ -9,6 +9,7 @@ pub enum ListManagerError {
     NotEnoughAvailableListToFlatten,
     InvalidInput(String),
     InvalidFunction(String),
+    NoInput,
 }
 
 impl Error for ListManagerError {}
@@ -34,6 +35,7 @@ impl Display for ListManagerError {
             ListManagerError::NotEnoughAvailableListToFlatten => {
                 f.write_str("Not enough available list to flatten, please define at least 2")
             }
+            ListManagerError::NoInput => f.write_str("Function expected an input"),
         }
     }
 }
