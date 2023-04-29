@@ -27,17 +27,6 @@ Takes an index as parameter and swaps the elements of the previous list(s) using
 [3, 2, 1, 4, 5]
 ```
 
-### Mirror Swap
-Takes an index as parameter and swaps the elements of the previous list(s) using the index as a swapping point. It also reverses the swapped sublists.
-```
-> swap 1
-[7, 6, 8, 9]
-[3, 2, 1, 4, 5]
-> mirror_swap 2
-[9, 8, 6, 7]
-[5, 4, 1, 2, 3]
-```
-
 ### Add
 Increases every element of the previous list(s) by the given amount.
 ```
