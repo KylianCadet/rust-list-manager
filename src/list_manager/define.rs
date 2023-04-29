@@ -1,4 +1,4 @@
-use super::{cerror::ListManagerError, ctype::ReturnType, list_manager::ListManager};
+use super::{r#error::ListManagerError, r#struct::ListManager, r#type::ReturnType};
 use regex::Regex;
 
 fn parse(arg: &str) -> Option<Vec<i8>> {

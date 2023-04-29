@@ -11,7 +11,7 @@ pub trait CliHandler {
 pub fn cli(mut cli_handler: impl CliHandler) -> Result<ExitCode, Box<dyn Error>> {
     let mut exit_code: Option<ExitCode> = None;
 
-    while let None = exit_code {
+    while exit_code.is_none() {
         match read_line() {
             Ok(line) => match cli_handler.handle(line) {
                 Ok(handler_res) => exit_code = handler_res,

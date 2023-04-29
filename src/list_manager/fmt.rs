@@ -1,6 +1,6 @@
 use std::fmt::{Display, Write};
 
-use super::{ctype::ReturnType, list_manager::ListManager};
+use super::{r#struct::ListManager, r#type::ReturnType};
 
 impl Display for ListManager {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -8,7 +8,7 @@ impl Display for ListManager {
 
         if let Some(v) = list_iter.next() {
             f.write_fmt(format_args!("{:?}", v)).unwrap();
-            while let Some(v) = list_iter.next() {
+            for v in list_iter {
                 f.write_char('\n').unwrap();
                 f.write_fmt(format_args!("{:?}", v)).unwrap();
             }

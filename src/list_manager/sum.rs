@@ -1,4 +1,4 @@
-use super::{cerror::ListManagerError, ctype::ReturnType, list_manager::ListManager};
+use super::{r#error::ListManagerError, r#struct::ListManager, r#type::ReturnType};
 
 impl ListManager {
     pub fn sum(&mut self) -> ReturnType {

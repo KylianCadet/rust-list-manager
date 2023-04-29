@@ -2,7 +2,7 @@ use std::process::ExitCode;
 
 use crate::cli::CliHandler;
 
-use super::{cerror::ListManagerError, ctype::ReturnType, list_manager::ListManager};
+use super::{r#error::ListManagerError, r#struct::ListManager, r#type::ReturnType};
 
 impl CliHandler for ListManager {
     fn handle(&mut self, line: String) -> ReturnType {

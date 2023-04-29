@@ -5,7 +5,7 @@ mod list_manager;
 mod read_line;
 
 use cli::cli;
-use list_manager::list_manager::ListManager;
+use list_manager::r#struct::ListManager;
 
 fn main() -> Result<ExitCode, Box<dyn Error>> {
     cli(ListManager::new())

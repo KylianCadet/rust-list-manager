@@ -1,11 +1,11 @@
-use super::{cerror::ListManagerError, ctype::ReturnType, list_manager::ListManager};
+use super::{r#error::ListManagerError, r#struct::ListManager, r#type::ReturnType};
 
 impl ListManager {
     pub fn cut(&mut self, s: &str) -> ReturnType {
-        if self.list.len() == 0 {
+        if self.list.is_empty() {
             return Err(Box::new(ListManagerError::NoAvailableListToPerformAction));
         }
-        if s.len() == 0 {
+        if s.is_empty() {
             return Err(Box::new(ListManagerError::NoInput));
         }
         let cut_index_value = s
@@ -24,10 +24,10 @@ impl ListManager {
             .iter()
             .fold(vec![], |mut acc: Vec<Vec<i8>>, curr| {
                 let (a, b) = curr.split_at(cut_index_value + 1);
-                if a.len() > 0 {
+                if !a.is_empty() {
                     acc.push(a.to_vec())
                 };
-                if b.len() > 0 {
+                if !b.is_empty() {
                     acc.push(b.to_vec());
                 }
                 acc

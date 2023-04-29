@@ -1,11 +1,11 @@
-use super::{cerror::ListManagerError, ctype::ReturnType, list_manager::ListManager};
+use super::{r#error::ListManagerError, r#struct::ListManager, r#type::ReturnType};
 
 impl ListManager {
     pub fn add(&mut self, s: &str) -> ReturnType {
-        if self.list.len() == 0 {
+        if self.list.is_empty() {
             return Err(Box::new(ListManagerError::NoAvailableListToPerformAction));
         }
-        if s.len() == 0 {
+        if s.is_empty() {
             return Err(Box::new(ListManagerError::NoInput));
         }
         let add_value = s

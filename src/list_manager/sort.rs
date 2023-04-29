@@ -1,4 +1,4 @@
-use super::{ctype::ReturnType, list_manager::ListManager};
+use super::{r#struct::ListManager, r#type::ReturnType};
 
 impl ListManager {
     pub fn sort(&mut self) -> ReturnType {
